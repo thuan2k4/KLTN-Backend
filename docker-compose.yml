@@ -1,0 +1,15 @@
+services:
+  api:
+    container_name: skinscan-backend
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      - USE_MOCK_INFERENCE=false
+      - MODEL_WEIGHTS_DIR=weights
+      - MODEL_DEVICE=cpu
+      - DEBUG=true
+    env_file:
+      - .env.example # Fallback nếu không có .env

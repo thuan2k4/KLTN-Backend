@@ -1,0 +1,46 @@
+# === PYTHON ENVIRONMENTS ===
+.venv/
+venv/
+env/
+ENV/
+bin/
+include/
+lib/
+share/
+pyvenv.cfg
+
+# === PYTHON CACHE & COMPILATION ===
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# === MODEL WEIGHTS & CHECKPOINTS (CRITICAL) ===
+# Tránh commit các file model weights dung lượng lớn lên Git
+weights/*.pt
+weights/*.pth
+weights/*.onnx
+weights/*.bin
+# Giữ lại cấu trúc thư mục weights bằng file .gitkeep
+!weights/.gitkeep
+
+# === CONFIG & SECRETS ===
+.env
+*.env
+.env.*
+!*.example
+
+# === DOCKER CACHE ===
+.docker/
+
+# === OS FILES ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+docs
+image
+weights

@@ -1,0 +1,29 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env/
+ENV/
+
+# Local weights (Khong can thiet mang vao Docker vi da goi API HuggingFace)
+weights/
+*.pt
+*.pth
+
+# IDE and OS files
+.vscode/
+.idea/
+*.swp
+*.DS_Store
+
+# Git
+.git/
+.gitignore
+
+# Env config local (Tu truyen env qua docker-compose)
+.env
