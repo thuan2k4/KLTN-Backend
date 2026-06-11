@@ -141,6 +141,7 @@ Toi thieu can kiem tra/khai bao cac bien sau trong tab Environment:
 - `USE_MOCK_INFERENCE=false`
 - `DEFAULT_MODEL=b3`
 - `MODEL_DEVICE=cpu`
+- `HF_TIMEOUT_SECONDS=180`
 - `MAX_UPLOAD_SIZE_MB=10`
 - `HF_SPACE_ID=qthuan2604/skin-disease-classifier`
 - `FRONTEND_ORIGINS=https://hue-ict-skin-scan.netlify.app`

@@ -13,6 +13,7 @@ class Settings(BaseSettings):
     DEFAULT_MODEL: str = "b3"
     MODEL_WEIGHTS_DIR: str = "weights"
     MODEL_DEVICE: str = "cpu"
+    HF_TIMEOUT_SECONDS: int = 180
 
     # Upload Settings
     MAX_UPLOAD_SIZE_MB: int = 10

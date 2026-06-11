@@ -29,7 +29,10 @@ class RealPredictor:
 
     def _get_client(self):
         if self._client is None:
-            self._client = Client(self.hf_id)
+            self._client = Client(
+                self.hf_id,
+                httpx_kwargs={"timeout": settings.HF_TIMEOUT_SECONDS},
+            )
         return self._client
 
     def _get_model_name(self, model_id: str) -> str:
