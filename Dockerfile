@@ -17,5 +17,5 @@ COPY . .
 # Expose port chạy dịch vụ
 EXPOSE 8000
 
-# Chạy ứng dụng
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+# Chạy ứng dụng production
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

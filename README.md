@@ -109,6 +109,60 @@ docker compose up --build
 
 ---
 
+## Render Deploy (Backend FastAPI)
+
+Backend da duoc bo sung file cau hinh `render.yaml` de deploy len Render on dinh.
+
+### 1. Cach deploy khuyen nghi (Blueprint)
+
+1. Push code len GitHub (bao gom file `render.yaml` o root repo).
+2. Vao Render -> New + -> Blueprint.
+3. Chon repository chua du an.
+4. Render se tu dong doc `render.yaml` va tao Web Service cho backend.
+5. Bam `Apply` de khoi tao service.
+
+### 2. Build/Start command dang dung tren Render
+
+- Build Command:
+  - `pip install --upgrade pip && pip install -r requirements.txt`
+- Start Command:
+  - `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
+- Health Check Path:
+  - `/api/health`
+
+### 3. Bien moi truong can dat tren Render
+
+Toi thieu can kiem tra/khai bao cac bien sau trong tab Environment:
+
+- `APP_NAME=SkinScan API`
+- `APP_VERSION=1.0.0`
+- `DEBUG=false`
+- `API_PREFIX=/api`
+- `USE_MOCK_INFERENCE=false`
+- `DEFAULT_MODEL=b3`
+- `MODEL_DEVICE=cpu`
+- `MAX_UPLOAD_SIZE_MB=10`
+- `HF_SPACE_ID=qthuan2604/skin-disease-classifier`
+- `FRONTEND_ORIGINS=https://hue-ict-skin-scan.netlify.app`
+
+Neu co nhieu domain frontend, noi bang dau phay:
+
+`FRONTEND_ORIGINS=https://hue-ict-skin-scan.netlify.app,https://<custom-domain>`
+
+### 4. Ket noi FE (Netlify) voi BE (Render)
+
+Sau khi Render cap URL backend (vi du `https://skinscan-backend.onrender.com`), set tren Netlify:
+
+- `VITE_API_BASE_URL=https://skinscan-backend.onrender.com/api`
+
+### 5. Luu y van hanh
+
+- Khoi dong lan dau tren Render Free co the cham (cold start).
+- Dockerfile da bo `--reload` de phu hop production.
+- Khong can upload weights len Render neu backend dang goi suy luan qua Hugging Face Space (`HF_SPACE_ID`).
+
+---
+
 ## 📊 Mô tả API Contract (Đầu ra hệ thống)
 
 ### 1. Health Check
